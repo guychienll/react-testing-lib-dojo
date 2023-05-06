@@ -1,0 +1,13 @@
+{
+    "editor.formatOnSave": true,
+    "eslint.options": {
+        "overrideConfigFile": ".eslintrc.js"
+    },
+    "jest.jestCommandLine": "npm t --",
+    "jest.rootPath": "./",
+    "jest.autoRun": {
+        "watch": false,
+        "onSave": false,
+        "onStartup": false
+    }
+}
