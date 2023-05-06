@@ -15,4 +15,5 @@ module.exports = {
     ],
     testPathIgnorePatterns: ['/node_modules/'],
     transformIgnorePatterns: ['/node_modules/'],
+    setupFilesAfterEnv: ['<rootDir>/jest/global-setup.js'],
 };
