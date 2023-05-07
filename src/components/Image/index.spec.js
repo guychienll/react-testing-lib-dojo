@@ -1,5 +1,6 @@
 import { queryByTestId } from '@testing-library/dom';
 import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Image, { generateImageUrlWithDensity, generatePictureSource } from './';
 
@@ -48,7 +49,7 @@ describe('image', () => {
             expect(screen.queryByText('Welcome to React')).toBeNull();
         });
 
-        pictureElement.click();
+        userEvent.click(pictureElement);
 
         await waitFor(() => {
             expect(screen.queryByText('Welcome to React')).not.toBeNull();
@@ -63,7 +64,7 @@ describe('image', () => {
             expect(screen.queryByText('Welcome to React')).toBeNull();
         });
 
-        pictureElement.click();
+        userEvent.click(pictureElement);
 
         await waitFor(() => {
             expect(screen.queryByText('Welcome to React')).not.toBeNull();

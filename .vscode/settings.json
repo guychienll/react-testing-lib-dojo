@@ -8,6 +8,6 @@
     "jest.autoRun": {
         "watch": false,
         "onSave": false,
-        "onStartup": false
+        "onStartup": true
     }
 }
