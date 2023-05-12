@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 
 const Picture = ({ src, alt }) => (
     <picture data-testid="picture">
+        <source data-testid="picture:source:webp" />
         <img data-testid="picture:img" src={src} alt={alt} />
     </picture>
 );
