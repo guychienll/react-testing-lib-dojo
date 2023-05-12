@@ -3,15 +3,17 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-const Picture = ({ src, alt }) => (
-    <picture data-testid="picture">
-        <source
-            data-testid="picture:source:webp"
-            srcSet="https://via.placeholder.com/300x300.webp"
-        />
-        <img data-testid="picture:img" src={src} alt={alt} />
-    </picture>
-);
+const Picture = ({ src, alt }) => {
+    return (
+        <picture data-testid="picture">
+            <source
+                data-testid="picture:source:webp"
+                srcSet="https://via.placeholder.com/300x300.webp"
+            />
+            <img data-testid="picture:img" src={src} alt={alt} />
+        </picture>
+    );
+};
 
 describe('picture', () => {
     it('render_as_expected', () => {
@@ -36,3 +38,17 @@ describe('picture', () => {
         );
     });
 });
+
+describe('generate_picture_src_set', () => {
+    it('webp', () => {
+        const webp = generatePictureSource(
+            'https://via.placeholder.com/300x300.jpg',
+            'webp'
+        );
+        expect(webp).toBe('https://via.placeholder.com/300x300.webp');
+    });
+});
+
+function generatePictureSource(arg0, arg1) {
+    throw new Error('Function not implemented.');
+}
