@@ -3,7 +3,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-const Picture = () => <picture data-testid="picture"></picture>;
+const Picture = () => (
+    <picture data-testid="picture">
+        <img data-testid="picture:img" src="" alt="" />
+    </picture>
+);
 
 describe('picture', () => {
     it('render_as_expected', () => {
