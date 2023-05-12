@@ -8,7 +8,7 @@ const Picture = ({ src, alt }) => {
         <picture data-testid="picture">
             <source
                 data-testid="picture:source:webp"
-                srcSet="https://via.placeholder.com/300x300.webp"
+                srcSet={generatePictureSource(src, 'webp')}
             />
             <img data-testid="picture:img" src={src} alt={alt} />
         </picture>
