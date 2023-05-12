@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 // @ts-check
-import React from 'react';
+import React, { useState } from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 const Picture = ({ src, alt }) => {
+    const [isWelcomeWordingVisible, setisWelcomeWordingVisible] =
+        useState(false);
     return (
         <>
             <picture data-testid="picture">
@@ -18,9 +20,17 @@ const Picture = ({ src, alt }) => {
                 />
                 <img data-testid="picture:img" src={src} alt={alt} />
             </picture>
-            <button data-testid="picture:button:show-welcome-wording">
+            <button
+                data-testid="picture:button:show-welcome-wording"
+                onClick={() => {
+                    setisWelcomeWordingVisible(true);
+                }}
+            >
                 Show welcome wording
             </button>
+            {isWelcomeWordingVisible && (
+                <h1>Welcome to React Testing Library!</h1>
+            )}
         </>
     );
 };
