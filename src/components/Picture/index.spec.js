@@ -3,9 +3,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+const Picture = () => <picture data-testid="picture"></picture>;
+
 describe('picture', () => {
     it('render_as_expected', () => {
-        const { queryByTestId } = render(<picture></picture>);
+        const { queryByTestId } = render(<Picture />);
 
         expect(queryByTestId('picture')).toBeInTheDocument();
     });
