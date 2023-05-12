@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
 // @ts-check
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 const Picture = ({ src, alt }) => {
     return (
-        <picture data-testid="picture">
-            <source
-                data-testid="picture:source:avif"
-                srcSet={generatePictureSource(src, 'avif')}
-            />
-            <source
-                data-testid="picture:source:webp"
-                srcSet={generatePictureSource(src, 'webp')}
-            />
-            <img data-testid="picture:img" src={src} alt={alt} />
-        </picture>
+        <>
+            <picture data-testid="picture">
+                <source
+                    data-testid="picture:source:avif"
+                    srcSet={generatePictureSource(src, 'avif')}
+                />
+                <source
+                    data-testid="picture:source:webp"
+                    srcSet={generatePictureSource(src, 'webp')}
+                />
+                <img data-testid="picture:img" src={src} alt={alt} />
+            </picture>
+        </>
     );
 };
 
@@ -47,6 +49,11 @@ describe('picture', () => {
             'srcSet',
             `https://via.placeholder.com/300x300.avif`
         );
+
+        const welcomeWordingButton = screen.queryByTestId(
+            'picture:button:show-welcome-wording'
+        );
+        expect(welcomeWordingButton).not.toBeNull();
     });
 });
 
