@@ -3,9 +3,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-const Picture = () => (
+const Picture = ({ src }) => (
     <picture data-testid="picture">
-        <img data-testid="picture:img" src="" alt="" />
+        <img data-testid="picture:img" src={src} alt="" />
     </picture>
 );
 
