@@ -13,6 +13,7 @@ describe('picture', () => {
     it('render_as_expected', () => {
         const props = {
             src: 'https://via.placeholder.com/300x300.jpg',
+            alt: 'testing image',
         };
         const { queryByTestId } = render(<Picture {...props} />);
 
@@ -21,5 +22,6 @@ describe('picture', () => {
         const imageElem = queryByTestId('picture:img');
         expect(imageElem).not.toBeNull();
         expect(imageElem).toHaveAttribute('src', props.src);
+        expect(imageElem).toHaveAttribute('alt', props.alt);
     });
 });
