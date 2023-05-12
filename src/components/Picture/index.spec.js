@@ -2,6 +2,7 @@
 // @ts-check
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 const Picture = ({ src, alt }) => {
     return (
@@ -25,7 +26,7 @@ const Picture = ({ src, alt }) => {
 };
 
 describe('picture', () => {
-    it('render_as_expected', () => {
+    it('render_as_expected', async () => {
         const props = {
             src: 'https://via.placeholder.com/300x300.jpg',
             alt: 'testing image',
@@ -58,6 +59,10 @@ describe('picture', () => {
         );
         expect(welcomeWordingButton).not.toBeNull();
         expect(welcomeWordingButton).toHaveTextContent('Show welcome wording');
+
+        welcomeWordingButton && userEvent.click(welcomeWordingButton);
+
+        await screen.findByText('Welcome to React Testing Library!');
     });
 });
 
