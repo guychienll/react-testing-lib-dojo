@@ -36,6 +36,13 @@ describe('picture', () => {
             'srcSet',
             `https://via.placeholder.com/300x300.webp`
         );
+
+        const avifSourceElem = queryByTestId('picture:source:avif');
+        expect(avifSourceElem).not.toBeNull();
+        expect(avifSourceElem).toHaveAttribute(
+            'srcSet',
+            `https://via.placeholder.com/300x300.avif`
+        );
     });
 });
 
