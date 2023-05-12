@@ -55,6 +55,7 @@ describe('picture', () => {
             'picture:button:show-welcome-wording'
         );
         expect(welcomeWordingButton).not.toBeNull();
+        expect(welcomeWordingButton).toHaveTextContent('Show welcome wording');
     });
 });
 
