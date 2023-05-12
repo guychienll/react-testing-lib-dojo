@@ -27,5 +27,9 @@ describe('picture', () => {
 
         const webpSourceElem = queryByTestId('picture:source:webp');
         expect(webpSourceElem).not.toBeNull();
+        expect(webpSourceElem).toHaveAttribute(
+            'srcSet',
+            `https://via.placeholder.com/300x300.webp`
+        );
     });
 });
