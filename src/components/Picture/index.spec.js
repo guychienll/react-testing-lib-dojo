@@ -10,5 +10,7 @@ describe('picture', () => {
         const { queryByTestId } = render(<Picture />);
 
         expect(queryByTestId('picture')).toBeInTheDocument();
+
+        expect(queryByTestId('picture:img')).not.toBeNull();
     });
 });
