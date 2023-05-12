@@ -7,6 +7,10 @@ const Picture = ({ src, alt }) => {
     return (
         <picture data-testid="picture">
             <source
+                data-testid="picture:source:avif"
+                srcSet={generatePictureSource(src, 'avif')}
+            />
+            <source
                 data-testid="picture:source:webp"
                 srcSet={generatePictureSource(src, 'webp')}
             />
