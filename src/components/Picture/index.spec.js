@@ -1,39 +1,10 @@
 /* eslint-disable react/prop-types */
 // @ts-check
-import React, { useState } from 'react';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-const Picture = ({ src, alt }) => {
-    const [isWelcomeWordingVisible, setisWelcomeWordingVisible] =
-        useState(false);
-    return (
-        <>
-            <picture data-testid="picture">
-                <source
-                    data-testid="picture:source:avif"
-                    srcSet={generatePictureSource(src, 'avif')}
-                />
-                <source
-                    data-testid="picture:source:webp"
-                    srcSet={generatePictureSource(src, 'webp')}
-                />
-                <img data-testid="picture:img" src={src} alt={alt} />
-            </picture>
-            <button
-                data-testid="picture:button:show-welcome-wording"
-                onClick={() => {
-                    setisWelcomeWordingVisible(true);
-                }}
-            >
-                Show welcome wording
-            </button>
-            {isWelcomeWordingVisible && (
-                <h1>Welcome to React Testing Library!</h1>
-            )}
-        </>
-    );
-};
+import { Picture } from './Picture';
+import { generatePictureSource } from './generatePictureSource';
 
 describe('picture', () => {
     it('render_as_expected', async () => {
@@ -85,17 +56,3 @@ describe('generate_picture_src_set', () => {
         expect(webp).toBe('https://via.placeholder.com/300x300.webp');
     });
 });
-
-function generatePictureSource(src, type) {
-    let fullUrl = null;
-
-    if (src.indexOf('http') > -1 || src.indexOf('https') > -1) {
-        fullUrl = new URL(src);
-    } else {
-        fullUrl = new URL(`https://${src}`);
-    }
-
-    const urlWithoutExtension = fullUrl.href.split('.').slice(0, -1).join('.');
-
-    return `${urlWithoutExtension}.${type}`;
-}
