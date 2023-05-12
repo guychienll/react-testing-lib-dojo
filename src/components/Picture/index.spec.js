@@ -17,7 +17,9 @@ const Picture = ({ src, alt }) => {
                 />
                 <img data-testid="picture:img" src={src} alt={alt} />
             </picture>
-            <button data-testid="picture:button:show-welcome-wording" />
+            <button data-testid="picture:button:show-welcome-wording">
+                Show welcome wording
+            </button>
         </>
     );
 };
