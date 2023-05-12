@@ -5,7 +5,10 @@ import { render } from '@testing-library/react';
 
 const Picture = ({ src, alt }) => (
     <picture data-testid="picture">
-        <source data-testid="picture:source:webp" />
+        <source
+            data-testid="picture:source:webp"
+            srcSet="https://via.placeholder.com/300x300.webp"
+        />
         <img data-testid="picture:img" src={src} alt={alt} />
     </picture>
 );
