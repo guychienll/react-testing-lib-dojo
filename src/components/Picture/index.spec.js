@@ -23,5 +23,8 @@ describe('picture', () => {
         expect(imageElem).not.toBeNull();
         expect(imageElem).toHaveAttribute('src', props.src);
         expect(imageElem).toHaveAttribute('alt', props.alt);
+
+        const webpSourceElem = queryByTestId('picture:source:webp');
+        expect(webpSourceElem).not.toBeNull();
     });
 });
